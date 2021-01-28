@@ -7,7 +7,7 @@ export function getStaticPaths() {
 export function getStaticProps({ params }) {
   return {
     props: { token: params.token },
-    unstable_revalidate: true,
+    revalidate: true,
   };
 }
 
