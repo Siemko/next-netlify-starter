@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -12,5 +13,9 @@ export function getStaticProps({ params }) {
 }
 
 export default function Activate({ token }) {
-  return <h1>{token}</h1>;
+  const [t, setT] = useState(token);
+  useEffect(() => {
+    setT(token + " to dla Was!");
+  }, []);
+  return <h1>{t}</h1>;
 }
